@@ -5,6 +5,7 @@ import unittest
 from test_sheets import (
     calculeaza_activitate,
     calculeaza_bmi,
+    calculeaza_scor_bmi,
     intensitate_normalizata,
     scor_procent,
 )
@@ -27,6 +28,12 @@ class EngineTests(unittest.TestCase):
 
     def test_bmi_uses_metric_units(self):
         self.assertEqual(calculeaza_bmi(70, 175), 22.9)
+
+    def test_adult_bmi_uses_standard_healthy_range(self):
+        self.assertEqual(
+            calculeaza_scor_bmi(21.9, 25),
+            {"scor": 100, "categorie": "Healthy range"},
+        )
 
     def test_percentage_score_is_limited_to_zero_and_one_hundred(self):
         self.assertEqual(scor_procent(300, 150), 100)

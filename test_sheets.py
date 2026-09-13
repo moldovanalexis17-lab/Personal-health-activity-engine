@@ -1451,7 +1451,7 @@ def calculeaza_bmi(
 
 
 # ============================================================
-# BMI CALIBRAT
+# BMI CLASSIFICATION
 # ============================================================
 
 def calculeaza_scor_bmi(
@@ -1459,8 +1459,7 @@ def calculeaza_scor_bmi(
     varsta,
 ):
 
-    # Pentru persoane sub 20 ani nu folosim
-    # clasificarea personalizata de adult.
+    # For people under 20, adult BMI categories are not used.
 
     if varsta < 20:
 
@@ -1474,28 +1473,11 @@ def calculeaza_scor_bmi(
         }
 
 
-    # ========================================================
-    # CALIBRARE
-    #
-    # Repere la 185 cm:
-    #
-    # < 70 kg      = Subponderal
-    # 70 - 75 kg   = Usor subponderal
-    # 75 - 85 kg   = Normal
-    # 85 - 90 kg   = Usor supraponderal
-    # > 90 kg      = Supraponderal
-    #
-    # Convertite in BMI pentru a functiona proportional
-    # si la alte inaltimi.
-    # ========================================================
+    # WHO adult BMI ranges:
+    # underweight < 18.5, normal weight 18.5-24.9,
+    # overweight 25.0-29.9, obesity >= 30.0.
 
-    PRAG_1 = 20.45
-    PRAG_2 = 21.91
-    PRAG_3 = 24.84
-    PRAG_4 = 26.30
-
-
-    if bmi < PRAG_1:
+    if bmi < 18.5:
 
         return {
 
@@ -1507,19 +1489,7 @@ def calculeaza_scor_bmi(
         }
 
 
-    if bmi < PRAG_2:
-
-        return {
-
-            "scor":
-                80,
-
-            "categorie":
-                "Slightly underweight",
-        }
-
-
-    if bmi < PRAG_3:
+    if bmi < 25:
 
         return {
 
@@ -1531,7 +1501,7 @@ def calculeaza_scor_bmi(
         }
 
 
-    if bmi < PRAG_4:
+    if bmi < 30:
 
         return {
 
@@ -1539,7 +1509,7 @@ def calculeaza_scor_bmi(
                 80,
 
             "categorie":
-                "Slightly above range",
+                "Overweight",
         }
 
 
@@ -1549,7 +1519,7 @@ def calculeaza_scor_bmi(
             60,
 
         "categorie":
-            "Above range",
+            "Obesity",
     }
 
 

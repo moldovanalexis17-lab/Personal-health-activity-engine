@@ -78,9 +78,27 @@ This project demonstrates practical Python automation skills:
 - source filtering and caching;
 - automatic spreadsheet updates.
 
+## Demo
+
+### Google Sheets input
+
+The user enters lifestyle data directly in the spreadsheet. The activity-intensity dropdown accepts English and Romanian values.
+
+![Google Sheets input table](screenshots/input-sheet.png)
+
+### Automated results
+
+The application validates the inputs, calculates the indicators, and writes the results and scores back to the sheet.
+
+![Google Sheets results table](screenshots/results-sheet.png)
+
 ## Reliability
 
-Google Sheets write operations retry automatically up to three times when a temporary network timeout occurs. This prevents a short-lived connection issue from immediately stopping the workflow.
+Google Sheets connection and write operations retry automatically up to three times when a temporary network timeout occurs. This prevents a short-lived connection issue from immediately stopping the workflow.
+
+## BMI handling
+
+For adults, BMI categories follow the [WHO adult BMI ranges](https://www.who.int/europe/news-room/fact-sheets/item/nutrition---maintaining-a-healthy-lifestyle): underweight below 18.5, normal weight from 18.5 to 24.9, overweight from 25.0 to 29.9, and obesity from 30.0 upward. For people under 20, the application returns `BMI-for-age required` because an age- and sex-specific percentile is needed.
 
 ## Tests
 
