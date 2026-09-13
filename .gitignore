@@ -1,0 +1,28 @@
+# Secrets and locally generated data
+phyton-gsheets-api-connection-*.json
+*service-account*.json
+*gsheets-api-connection*.json
+*.backup.json
+*.before_portfolio.py
+surse_cache.json
+.env
+
+# Downloaded source material
+*.pdf
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local legacy files and unrelated source data
+test_apa.py
+notepad
+Date_statistice.xls
+Ocupatie_UAT.dbf
+Ocupatie_UAT.prj
+Ocupatie_UAT.sbn
+Ocupatie_UAT.sbx
+Ocupatie_UAT.shp
+Ocupatie_UAT.shx
